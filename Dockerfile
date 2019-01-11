@@ -6,6 +6,6 @@ RUN apt update -y && \
     apt install -y wireguard-dkms wireguard-tools
 
 COPY scripts /scripts
-
+RUN chmod +x /scripts/run.sh
 ENTRYPOINT ["/scripts/run.sh"]
 CMD []
