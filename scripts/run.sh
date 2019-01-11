@@ -20,4 +20,4 @@ finish () {
 
 trap finish SIGTERM SIGINT SIGQUIT
 
-sleep infinity &
+sleep infinity 
