@@ -1,0 +1,21 @@
+# this is a sample peer config file
+# this config is for a VPN
+
+# add the peer's private key and the servers public key below.
+# also change the endpoint to your wireguard server's IP/DNS and port (default to 51820)
+# you can also configure a DNS server to use when you're connected
+
+[Interface]
+PrivateKey = [put your peer's private key here]
+DNS = 8.8.8.8
+Address = 192.168.2.2/24
+
+[Peer]
+PublicKey = [put the server public key here]
+AllowedIPs = 0.0.0.0/0
+Endpoint = yourserver.example:51820
+
+# Send periodic keepalives to ensure connection stays up behind NAT.
+PersistentKeepalive = 25
+
+
