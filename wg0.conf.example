@@ -1,0 +1,16 @@
+# This is an example wg0.conf file.
+# mount this in /etc/wireguard/
+# All you need to do is add the keys below.
+
+# this configures the server
+[Interface]
+Address = 192.168.2.1/24
+PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -j MASQUERADE; iptables -A FORWARD -o wg0 -j ACCEPT
+PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -j MASQUERADE; iptables -D FORWARD -i wg0 -j ACCEPT
+ListenPort = 51820
+PrivateKey = [put your server private key here]
+
+# This configures one peer.
+[Peer]
+PublicKey = [put your peer public key here]
+AllowedIPs = 192.168.2.2/32
