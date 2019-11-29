@@ -6,6 +6,8 @@ apt update
 apt install -y linux-headers-$(uname -r)
 apt install -y wireguard
 
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
 interface='wg0'
 
 echo "$(date): Starting Wireguard"
